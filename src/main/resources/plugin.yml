@@ -1,0 +1,9 @@
+name: ItemConfig
+version: '${project.version}'
+main: ua.kotarych.item.itemconfig.ItemConfig
+api-version: 1.16
+authors: [ Kotarych ]
+
+commands:
+  lore:
+  ItemConfig:

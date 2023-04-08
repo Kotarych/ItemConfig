@@ -13,7 +13,6 @@ import ua.kotarych.item.itemconfig.Config;
 import java.util.List;
 
 public class Systems implements CommandExecutor, TabExecutor {
-    private final Config CONFIG = new Config();
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
@@ -21,17 +20,17 @@ public class Systems implements CommandExecutor, TabExecutor {
             if (sender.hasPermission("ItemConfig.reload")) {
                 if (args[0].equalsIgnoreCase("reload")) {
 
-                    Bukkit.reload();
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.successfullyReloadConfig));
+                    Config.reload();
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Config.getSuccessfullyReloadConfig()));
 
                 }
             } else {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorPermission));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorPermission()));
             }
 
         } else {
 
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorCommand));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorCommand()));
         }
         return true;
     }

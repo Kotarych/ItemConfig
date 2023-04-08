@@ -1,0 +1,30 @@
+#
+# Lore Command
+#
+language: "en"
+# plugin language (en - English, ua - Україна, ru - Россия)
+isMaxSymbols: true
+# whether the character limit is enabled
+maxSymbols: 20
+# maximum characters
+errorMaxSymbols: "&cThe text should not be more than %symbols% of characters"
+# notification if there are more characters than necessary
+errorCommandLore: "&cCommand execution error : /lore <description>"
+# notification in case of a command execution error /lore
+errorItem: "&cYou must hold the object in your hand"
+# notification if there is no object in your hand
+errorLvl: "&cTo use this command you need level 2"
+# notifications if the player has an insufficient level
+errorPermission: "&cYou are not allowed to use this command"
+# notification if the player does not have the right to use this command
+successfullyAddedLore: "&aItem description successfully added"
+# notification if the item description is successfully added
+#
+# Config Reload
+#
+errorCommand: "&cThe command was entered incorrectly"
+# notification when a command is entered incorrectly
+successfullyReloadConfig: "&cPlugin configuration successfully reloaded"
+# notification when the plugin configuration is successfully reloaded
+thisLanguage: "en"
+# language of the current configuration file (do not change to change the language)

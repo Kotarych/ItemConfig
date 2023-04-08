@@ -9,8 +9,7 @@ public final class ItemConfig extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
+        Config.load();
 
         getCommand("lore").setExecutor(new ItemLore());
         getCommand("ItemConfig").setExecutor(new Systems());

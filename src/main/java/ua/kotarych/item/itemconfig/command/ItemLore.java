@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class ItemLore implements CommandExecutor {
 
-    private static final Config CONFIG = new Config();
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (sender instanceof Player){
@@ -28,11 +27,11 @@ public class ItemLore implements CommandExecutor {
                 if (args.length != 0) {
                     String lore = String.join(" ", args);
 
-                    if (CONFIG.isMaxSymbols) {
-                        if (lore.length() > CONFIG.maxSymbols) {
+                    if (Config.isIsMaxSymbols()) {
+                        if (lore.length() > Config.getMaxSymbols()) {
 
                             player.sendRawMessage(ChatColor.translateAlternateColorCodes('&',
-                                    CONFIG.errorMaxSymbols.replace("%symbols%", String.valueOf(CONFIG.maxSymbols))));
+                                    Config.getErrorMaxSymbols().replace("%symbols%", String.valueOf(Config.getMaxSymbols()))));
 
                             return true;
                         }
@@ -41,7 +40,7 @@ public class ItemLore implements CommandExecutor {
                     if (!player.hasPermission("ItemConfig.noLvl")) {
                         if (player.getLevel() < 2) {
 
-                            player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorLvl));
+                            player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorLvl()));
                             return true;
                         }
                     }
@@ -60,19 +59,19 @@ public class ItemLore implements CommandExecutor {
                             player.setLevel(player.getLevel() - 2);
                         }
 
-                        player.sendActionBar(Funct.stringToComponent(CONFIG.successfullyAddedLore));
+                        player.sendActionBar(Funct.stringToComponent(Config.getSuccessfullyAddedLore()));
 
 
                     } else {
-                        player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorItem));
+                        player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorItem()));
                     }
 
                 } else {
-                    player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorCommandLore));
+                    player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorCommandLore()));
 
                 }
             } else {
-                player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', CONFIG.errorPermission));
+                player.sendRawMessage(ChatColor.translateAlternateColorCodes('&', Config.getErrorPermission()));
             }
 
         }
